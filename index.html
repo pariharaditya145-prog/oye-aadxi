@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>oye.aadxi | Book Your Seat</title>
+<meta name="description" content="oye.aadxi tours and travels — book seats, choose vehicles and discover complete travel packages with stays, meals, photography, adventures and activities.">
+<style>
+:root{--bg:#071013;--card:#0e1b20;--line:#26383d;--text:#f3f6f3;--muted:#a8b5b8;--accent:#d9efdf;--accent2:#9bc9ad}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.55}a{text-decoration:none;color:inherit}
+nav{position:fixed;z-index:20;top:0;left:0;right:0;padding:16px 6%;display:flex;align-items:center;justify-content:space-between;background:rgba(7,16,19,.72);backdrop-filter:blur(14px);border-bottom:1px solid #ffffff12}.logo{font-size:25px;font-weight:900;letter-spacing:-1px}.logo span{color:var(--accent2)}.links{display:flex;gap:25px;font-size:14px}.links a:hover{color:var(--accent2)}
+.btn{display:inline-block;background:var(--accent);color:#07100c;padding:13px 21px;border-radius:28px;font-weight:800;border:0;cursor:pointer}.outline{background:transparent;color:var(--text);border:1px solid #829095}
+.hero{min-height:100vh;padding:125px 6% 70px;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden;background:radial-gradient(circle at 70% 25%,#3c665c55,transparent 28%),linear-gradient(150deg,#1b3639,#071013 57%)}.hero:after{content:"";position:absolute;bottom:-12%;left:-5%;width:110%;height:45%;background:linear-gradient(145deg,transparent 25%,#0c2227 26% 42%,transparent 43%),linear-gradient(25deg,#09191e 30%,transparent 31%);opacity:.9}.heroContent{max-width:900px;position:relative;z-index:2}.eyebrow{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:#b7d9c1;font-weight:800}h1{font-size:clamp(55px,10vw,110px);line-height:.9;letter-spacing:-6px;margin:18px 0}.hero p{font-size:19px;color:#c1ccce;max-width:680px;margin:0 auto 28px}.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+section{padding:90px 6%}.head{max-width:720px;margin-bottom:35px}h2{font-size:clamp(35px,5vw,58px);line-height:1.05;margin:9px 0}.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:24px}.card h3{margin:9px 0 5px;font-size:22px}.icon{font-size:34px}
+.vehicleVisual{height:125px;border-radius:17px;background:linear-gradient(135deg,#dce5e1,#64777a);margin-bottom:17px;position:relative}.vehicleVisual:after{content:"OYΞ AADXI";position:absolute;bottom:17px;left:22px;color:#172326;font-weight:900;letter-spacing:2px}
+.package{min-height:245px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;padding:0;position:relative}.package .visual{position:absolute;inset:0;background:linear-gradient(140deg,#47736e,#122a2d 55%,#071215)}.package:nth-child(2) .visual{background:linear-gradient(140deg,#667e64,#1b3029 55%,#071215)}.package:nth-child(3) .visual{background:linear-gradient(140deg,#60707b,#25343a 55%,#071215)}.package .copy{position:relative;padding:25px;background:linear-gradient(transparent,#071013)}
+.booking{background:linear-gradient(125deg,#14322b,#0d2026);border:1px solid #ffffff12;border-radius:30px;padding:40px}.form{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:900px}.full{grid-column:1/-1}input,select,textarea{width:100%;background:#081419;color:#fff;border:1px solid #30454b;border-radius:13px;padding:15px;font:inherit}textarea{min-height:120px}.note{font-size:13px;color:#8f9da0;margin-top:10px}
+.whatsapp{margin-top:25px;padding:22px;border:1px solid #ffffff14;border-radius:20px;background:#09161a}.waNumber{font-size:22px;font-weight:900;color:var(--accent)}
+footer{padding:35px 6%;border-top:1px solid #ffffff12;display:flex;justify-content:space-between;color:#849296;font-size:14px}
+@media(max-width:800px){.links{display:none}.grid{grid-template-columns:1fr}.form{grid-template-columns:1fr}.full{grid-column:auto}h1{letter-spacing:-4px}.booking{padding:25px}}
+
+<style>
+.successModal{display:none;position:fixed;inset:0;z-index:100;align-items:center;justify-content:center;padding:22px}
+.successModal.show{display:flex;animation:fadeIn .35s ease}
+.successBackdrop{position:absolute;inset:0;background:rgba(1,8,10,.82);backdrop-filter:blur(9px)}
+.successCard{position:relative;width:min(470px,100%);text-align:center;background:#0b1a20;border:1px solid #ffffff18;border-radius:30px;overflow:hidden;box-shadow:0 25px 80px #0008;animation:pop .55s cubic-bezier(.2,.9,.2,1)}
+.journeyScene{height:175px;position:relative;overflow:hidden;background:linear-gradient(#102a35,#071316);border-bottom:1px solid #ffffff10}
+.mountain{position:absolute;bottom:20px;width:0;height:0;border-left:120px solid transparent;border-right:120px solid transparent;border-bottom:110px solid #17383d}
+.m1{left:-45px}.m2{left:115px;border-left-width:145px;border-right-width:145px;border-bottom-color:#102c32}.m3{right:-65px;border-left-width:130px;border-right-width:130px;border-bottom-color:#1b4245}
+.road{position:absolute;bottom:-35px;left:-10%;width:120%;height:80px;background:#091417;transform:rotate(-3deg);border-radius:50% 50% 0 0}
+.miniVan{position:absolute;bottom:25px;left:-90px;font-size:42px;filter:drop-shadow(0 5px 4px #0008);animation:drive 2.2s ease-out forwards}
+.moon{position:absolute;right:35px;top:22px;font-size:43px;color:#e4f0dc}.stars{position:absolute;top:12px;left:20px;right:20px;color:#d7eadc88;font-size:14px;letter-spacing:4px}
+.successIcon{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;margin:-29px auto 15px;position:relative;background:#d9efdf;color:#0b1711;font-size:30px;font-weight:900;border:5px solid #0b1a20;animation:check .5s .35s both}
+.successCard h2{font-size:39px;letter-spacing:-1.5px;margin:7px 15px}.successCard>p{font-size:20px;color:#bfe0c9;margin:5px 0}.successSmall{color:#8fa1a5;font-size:13px;padding:0 35px;margin:13px 0 22px}
+.successCard .btn{margin-bottom:25px;min-width:145px}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}@keyframes pop{from{transform:translateY(30px) scale(.88);opacity:0}to{transform:none;opacity:1}}@keyframes drive{from{left:-90px;transform:scale(.8)}to{left:calc(100% - 80px);transform:scale(1)}}@keyframes check{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+</style>
+
+</style>
+</head>
+<body>
+<nav><a class="logo" href="#">oye<span>.aadxi</span></a><div class="links"><a href="#trips">Trips</a><a href="#fleet">Vehicles</a><a href="#experience">Experience</a><a href="#book">Book</a></div><a class="btn" href="#book">Book Seat</a></nav>
+
+<header class="hero">
+<div class="heroContent"><div class="eyebrow">Himachal • India • Travel together</div><h1>Book your seat.<br>Live the trip.</h1><p>Road trips, stays, meals, photography, adventures and activities — choose a package and let oye.aadxi handle the journey.</p><div class="actions"><a class="btn" href="#book">Reserve My Seat</a><a class="btn outline" href="#trips">Explore Trips</a></div></div>
+</header>
+
+<section id="trips"><div class="head"><div class="eyebrow">Choose your journey</div><h2>Where are you going?</h2><p class="muted">Tell us your destination. We can build a complete package around your dates, group size and budget.</p></div>
+<div class="grid">
+<article class="card package"><div class="visual"></div><div class="copy"><h3>Manali & Solang</h3><p class="muted">Mountains, snow, cafés, sightseeing and adventure.</p></div></article>
+<article class="card package"><div class="visual"></div><div class="copy"><h3>Dharamshala & McLeod Ganj</h3><p class="muted">Himalayan views, culture, monasteries and local experiences.</p></div></article>
+<article class="card package"><div class="visual"></div><div class="copy"><h3>Custom Trip</h3><p class="muted">You choose the place — we plan the road trip.</p></div></article>
+</div></section>
+
+<section id="fleet"><div class="head"><div class="eyebrow">Our vehicles</div><h2>Pick the ride for your group.</h2></div><div class="grid">
+<article class="card"><div class="vehicleVisual"></div><h3>Maruti Suzuki Ertiga</h3><p class="muted">Comfortable option for small groups and family travel.</p></article>
+<article class="card"><div class="vehicleVisual"></div><h3>Toyota Innova</h3><p class="muted">Extra comfort for premium family and group journeys.</p></article>
+<article class="card"><div class="vehicleVisual"></div><h3>Traveller — 14 to 20 seats</h3><p class="muted">Ideal for friends, families, college groups and larger tours.</p></article>
+</div></section>
+
+<section id="experience"><div class="head"><div class="eyebrow">What's included</div><h2>Make the journey the destination.</h2><p class="muted">Package inclusions depend on the plan you choose. Ask us for a custom quote.</p></div><div class="grid">
+<article class="card"><div class="icon">🚐</div><h3>Vehicle</h3><p class="muted">Travel in an Ertiga, Innova or 14–20 seater Traveller according to your package.</p></article>
+<article class="card"><div class="icon">📸</div><h3>DSLR Photoshoot</h3><p class="muted">Capture your trip with dedicated photography when included in your package.</p></article>
+<article class="card"><div class="icon">🏕️</div><h3>Adventure & Activities</h3><p class="muted">Add exciting experiences and activities based on the destination and package.</p></article>
+<article class="card"><div class="icon">🍽️</div><h3>Meals</h3><p class="muted">Meal plans can be included according to your selected package.</p></article>
+<article class="card"><div class="icon">🏨</div><h3>Hotels & Hostels</h3><p class="muted">Comfortable stays arranged according to your package and budget.</p></article>
+<article class="card"><div class="icon">🎒</div><h3>Sponsored Stranger Trips</h3><p class="muted">We also sponsor selected stranger/community trips — ask us about upcoming opportunities.</p></article>
+</div></section>
+
+<section id="book"><div class="booking"><div class="head"><div class="eyebrow">Seat booking</div><h2>Reserve your seat.</h2><p class="muted">Send your details. Your request will open directly in WhatsApp so we can confirm availability, dates and package details with you.</p></div>
+<form class="form" onsubmit="book(event)">
+<input id="name" placeholder="Full name" required>
+<input id="phone" placeholder="Phone / WhatsApp number" required>
+<input id="place" placeholder="Where do you want to go?" required>
+<input id="date" type="date" required>
+<select id="people"><option value="">Number of travellers</option><option>1</option><option>2–5</option><option>6–10</option><option>11–14</option><option>15–20</option><option>20+</option></select>
+<select id="vehicle"><option>Vehicle preference</option><option>Ertiga</option><option>Innova</option><option>Traveller 14 seater</option><option>Traveller 16 seater</option><option>Traveller 17–20 seater</option><option>Not sure — recommend one</option></select>
+<textarea id="details" class="full" placeholder="Pickup place, return date, activities you want, hotel/hostel preference, meals, DSLR photoshoot, or anything else..."></textarea>
+<button class="btn full" type="submit">Send Booking Request on WhatsApp →</button>
+</form>
+<div class="whatsapp"><div class="muted">Direct booking & enquiries</div><div class="waNumber">+91 78076 97307</div><div class="note">Please wait for confirmation before treating a seat as booked.</div></div>
+</div></section>
+
+<footer><div>© 2026 oye.aadxi</div><div>Travel beyond limits.</div></footer>
+<script>
+function book(e){
+ e.preventDefault();
+ const v=id=>document.getElementById(id).value;
+ const text=`Hi oye.aadxi! I want to book a seat/trip.%0A%0AName: ${encodeURIComponent(v('name'))}%0APhone: ${encodeURIComponent(v('phone'))}%0ADestination: ${encodeURIComponent(v('place'))}%0ATrip date: ${encodeURIComponent(v('date'))}%0ATravellers: ${encodeURIComponent(v('people'))}%0AVehicle: ${encodeURIComponent(v('vehicle'))}%0AExtra details: ${encodeURIComponent(v('details'))}`;
+ window.open('https://wa.me/917807697307?text='+text,'_blank');
+ document.getElementById('successModal').classList.add('show');
+ document.getElementById('successModal').setAttribute('aria-hidden','false');
+ document.body.style.overflow='hidden';
+}
+function closeSuccess(){
+ document.getElementById('successModal').classList.remove('show');
+ document.getElementById('successModal').setAttribute('aria-hidden','true');
+ document.body.style.overflow='';
+ document.getElementById('book').scrollIntoView({behavior:'smooth'});
+}
+</script>
+
+<div id="successModal" class="successModal" aria-hidden="true">
+  <div class="successBackdrop"></div>
+  <div class="successCard">
+    <div class="journeyScene">
+      <div class="moon">☾</div>
+      <div class="mountain m1"></div><div class="mountain m2"></div><div class="mountain m3"></div>
+      <div class="road"></div>
+      <div class="miniVan">🚐</div>
+      <div class="stars">✦　·　✧　·　✦　·　✧　·　✦</div>
+    </div>
+    <div class="successIcon">✓</div>
+    <div class="eyebrow">oye.aadxi</div>
+    <h2>Thanks for booking<br>your seat!</h2>
+    <p>Happy Journey ✨</p>
+    <div class="successSmall">Your booking request has been sent to our WhatsApp team.</div>
+    <button class="btn" onclick="closeSuccess()">Continue</button>
+  </div>
+</div>
+
+</body></html>
